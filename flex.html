@@ -308,6 +308,77 @@
 			flex: 2;
 			-webkit-flex: 2;
 		}
+
+		.test-basis {
+			display: flex;
+			display: -webkit-flex;
+			width: 800px;
+			height: 100px;
+			background: #f0f0ff;
+			border: 2px solid #45f;
+		}
+		.test-basis .basis {
+			flex-basis: 140px;
+			-webkit-flex-basis: 140px;  /*基本宽度*/
+		}
+		.test-basis .basis:nth-of-type(3) {
+			flex-basis: 100px;
+			-webkit-flex-basis: 100px;
+		}
+
+		.test-grow {
+			display: flex;
+			display: -webkit-flex;
+			width: 800px;
+			height: 200px;
+			background: #777;
+		}
+		.test-grow .grow {
+			flex-grow: 1;
+			-webkit-flex-grow: 1;
+			background: pink;
+			margin: 10px;
+		}
+		.test-grow .grow:first-child {
+			flex-grow: 3;
+			-webkit-flex-grow: 3;
+		}
+		.test-grow .grow:nth-of-type(2) {
+			flex-grow: 2;
+			-webkit-flex-grow: 2;
+		}
+		.test-grow .grow:nth-of-type(3) {
+			flex-grow: 1;
+			-webkit-flex-grow: 1;
+		}
+		.test-grow .grow:nth-of-type(4) {
+			flex-grow: 2;
+			-webkit-flex-grow: 2;
+		}
+		.test-grow .grow:last-child {
+			flex-grow: 2;
+			-webkit-flex-grow: 2;
+		}
+
+		.test-shrink {
+			display: flex;
+			display: -webkit-flex;
+			background: #000;
+			width: 300px;
+			height: 100px;
+		}
+		.test-shrink .shrink {
+			flex-basis: 100px;
+			-webkit-flex-basis: 100px;
+			flex-grow: 1;
+			-webkit-flex-grow: 1;
+			flex-shrink: 1;
+			-webkit-flex-shrink: 1;
+		}
+		.test-shrink .shrink:nth-of-type(2) {
+			flex-shrink: 3;
+			-webkit-flex-shrink: 3;
+		}
 	</style>
 </head>
 <body>
@@ -406,6 +477,29 @@
 		<div class="flex-item flex-three">test flex item three</div>
 		<div class="flex-item flex-four">test flex item four</div>
 		<div class="flex-item flex-five">test flex item five</div>
+	</div>
+
+	<div class="test-grow">
+		<div class="grow">dddddd</div>
+		<div class="grow">dddddd</div>
+		<div class="grow">dddddd</div>
+		<div class="grow">dddddd</div>
+		<div class="grow">dddddd</div>
+	</div>
+
+	<div class="test-basis">
+		<div class="basis" style="background: coral;"></div>
+		<div class="basis" style="background: lightblue;"></div>
+		<div class="basis" style="background: khaki;"></div>
+		<div class="basis" style="background: pink;"></div>
+		<div class="basis" style="background: lightgrey;"></div>
+	</div>
+	<div class="test-shrink">
+		<div class="shrink" style="background: coral;"></div>
+		<div class="shrink" style="background: lightblue;"></div>
+		<div class="shrink" style="background: khaki;"></div>
+		<div class="shrink" style="background: pink;"></div>
+		<div class="shrink" style="background: lightgrey;"></div>
 	</div>
 </body>
 </html>
