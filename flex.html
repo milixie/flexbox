@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>flex box</title>
+	<style type="text/css">
+		.container{
+			padding: 0;
+			margin: 0;
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-flex-flow: row-reverse wrap-reverse;
+			justify-content: space-between;
+		}
+		.container .item {
+			background: tomato;
+			padding: 5px;
+			width: 100px;
+			height: 150px;
+			margin: 10px;
+			line-height: 150px;
+			color: #fff;
+			font-weight: bold;
+			font-size: 30px;
+			text-align: center;
+		}
+
+		.navigation {
+			list-style: none;
+			margin: 0;
+			background: deepskyblue;
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+
+			-webkit-flex-flow: row nowrap;
+
+			/*justify-content: flex-start;*/
+			justify-content: flex-end;
+			/*justify-content: center;*/
+			/*justify-content: space-around;*/
+			/*justify-content: space-between;*/
+		}
+		.navigation a {
+			text-decoration: none;
+			display: block;
+			padding: 20px;
+			color: #fff;
+		}
+
+		.navigation a:hover {
+			background: darken(deepskyblue, 20%);
+		}
+
+
+		@media all and (max-width: 800px) {
+		  .navigation {
+		    justify-content: space-around;
+		  }
+		}
+
+		@media all and (max-width: 600px) {
+		  .navigation {
+		    -webkit-flex-flow: column wrap;
+		    flex-flow: column wrap;
+		    padding: 0;
+		  }
+		  
+		  .navigation a { 
+		    text-align: center; 
+		    padding: 10px;
+		    border-top: 1px solid rgba(255,255,255,0.3); 
+		    border-bottom: 1px solid rgba(0,0,0,0.1); 
+		  }
+
+		  
+		  .navigation li:last-of-type a {
+		    border-bottom: none;
+		  }
+		}
+
+		.parent {
+			display: -webkit-flex;
+			display: flex;
+			width: 1000px;
+			height: 300px;
+			background: #ff0;
+			-webkit-align-items: baseline;
+			align-items: baseline;
+		}
+		.parent .child {
+			width: 100px;
+			margin: 10px;
+			background: #f30;
+		}
+
+		.wrapper {
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-flex-flow: row wrap;
+			flex-flow: row wrap;
+			font-weight: bold;
+			text-align: center;
+		}
+		.head, .main, .foot, .aside {
+			padding: 20px;
+			flex: 1 100%;
+		}
+		.head {
+			background: tomato;
+		}
+		.foot {
+			background: lightgreen;
+		}
+		.main {
+			text-align: left;
+			background: deepskyblue;
+		}
+
+		.aside-1 {
+			background: gold;
+		}
+		.aside-2 {
+			background: hotpink;
+		}
+		@media all and (min-width: 600px){
+			.aside {
+				flex: 1 auto;
+			}
+		}
+		@media all and (min-width: 800px) {
+			.main {
+				flex: 3 0px;
+			}
+			.aside-1 {
+				order: 1;
+			}
+			.main {
+				order: 4;
+			}
+			.aside-2{
+				order: 3;
+			}
+			.foot {
+				order: 5;
+			}
+		}
+
+		.column {
+			display: -webkit-flex;
+			display: flex;
+			-webkit-flex-direction: column;
+			flex-direction: column;
+			width: 300px;
+			height: 600px;
+			background: lightgrey;
+			-webkit-justify-content: center;
+			justify-content: center;
+		}
+		.column-item {
+			background: cornflowerblue;
+			width: 100px;
+			height: 100px;
+			margin: 10px;
+		}
+		.test-wrap {
+			display: flex;
+			display: -webkit-flex;
+			-webkit-flex-wrap: wrap-reverse;
+			flex-wrap: wrap-reverse;
+			justify-content: center;
+			-webkit-justify-content: center;
+			width: 800px;
+			height: 400px;
+			background: #f50;
+		}
+		.test-wrap .wrap-item {
+			width: 100px;
+			height: 100px;
+			margin: 10px;
+			background: #8f8;
+		}
+		.test-order{
+			display: flex;
+			display: -webkit-flex;
+			width: 700px;
+			height: 200px;
+			justify-content: center;
+			-webkit-justify-content: center;
+			background: #88f;
+		}
+		.test-order .order {
+			width: 100px;
+			height: 100px;
+			background: #222;
+			color: #fff;
+			margin: 10px;
+		}
+		.order-first {
+			order: 3;
+		}
+		.order-second {
+			order: 2;
+		}
+
+		.test-margin {
+			display: flex;
+			display: -webkit-flex;
+			width: 800px;
+			height: 200px;
+			background: #e89;
+		}
+		.test-margin .margin {
+			width: 100px;
+			height: 100px;
+			background: #f30;
+			margin: 10px;
+		}
+		.test-margin .margin:nth-of-type(3) {
+			margin-right: auto;
+		}
+
+		.margin-auto {
+			display: flex;
+			display: -webkit-flex;
+			width: 400px;
+			height: 200px;
+			background: #656;
+		}
+		.margin-auto .auto {
+			width: 100px;
+			height: 100px;
+			background: #f55;
+			margin: auto;
+		}
+		.align-self {
+			display: flex;
+			display: -webkit-flex;
+			width: 800px;
+			height: 300px;
+			background: cornflowerblue;
+		}
+		.self-item {
+			width: 200px;
+			height: 100px;
+			background: #f44;
+			margin: 10px;
+		}
+		.self-first {
+			-webkit-align-self: flex-start;
+			align-self: flex-start;
+		}
+		.self-second {
+			-webkit-align-self: center;
+			align-self: center;
+		}
+		.self-third {
+			-webkit-align-self: baseline;
+			align-self: baseline;
+		}
+		.self-forth {
+			-webkit-align-self: stretch;
+			align-self: stretch;
+		}
+		.self-fifth {
+			-webkit-align-self: flex-end;
+			align-self: flex-end;
+		}
+
+		.test-flex {
+			display: flex;
+			display: -webkit-flex;
+			width: 800px;
+			height: 200px;
+			background: #444;
+			/*justify-content: space-around;
+			-webkit-justify-content: space-around;*/
+		}
+		.test-flex .flex-item {
+			background: #f8f8f0;
+			margin: 10px;
+		}
+		.test-flex .flex-one {
+			flex: 3;
+			-webkit-flex: 3;
+		}
+		.test-flex .flex-two {
+			flex: 2;
+			-webkit-flex: 2;
+		}
+		.test-flex .flex-three {
+			flex: 1;
+			-webkit-flex: 1;
+		}
+		.test-flex .flex-four{
+			flex: 2;
+			-webkit-flex: 2;
+		}
+		.test-flex .flex-five {
+			flex: 2;
+			-webkit-flex: 2;
+		}
+	</style>
+</head>
+<body>
+	<!-- 完美居中 -->
+	<div class="container">
+		<div class="item">1</div>
+		<div class="item">2</div>
+		<div class="item">3</div>
+		<div class="item">4</div>
+		<div class="item">5</div>
+		<div class="item">6</div>
+		<div class="item">6</div>
+		<div class="item">6</div>
+		<div class="item">6</div>
+	</div>
+
+	<ul class="navigation">
+		<li><a href="javascript:void(0)">Home</a></li>
+		<li><a href="javascript:void(0)">About</a></li>
+		<li><a href="javascript:void(0)">Contact</a></li>
+		<li><a href="javascript:void(0)">Join</a></li>
+		<li><a href="javascript:void(0)">Tel</a></li>
+		<li><a href="javascript:void(0)">Address</a></li>
+		<li><a href="javascript:void(0)">Email</a></li>
+	</ul>
+
+	<!-- 完美居中 -->
+	<div class="parent">
+		<div class="child">2</div>
+		<div class="child">2</div>
+		<div class="child">2</div>
+		<div class="child">2</div>
+		<div class="child">2</div>
+		<div class="child">2</div>
+		<div class="child">2</div>
+	</div>
+
+	<div class="wrapper">
+		<header class="head">Header</header>
+		<article class="main">
+			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo</p>
+		</article>
+		<aside class="aside aside-1">aside one</aside>
+		<aside class="aside aside-2">aside two</aside>
+		<footer class="foot">footer</footer>
+	</div>
+
+	<div class="column">
+		<div class="column-item">column one</div>
+		<div class="column-item">column 2</div>
+		<div class="column-item">column 3</div>
+		<div class="column-item">column 4</div>
+	</div>
+
+	<div class="test-wrap">
+		<div class="wrap-item">141</div>
+		<div class="wrap-item">141</div>
+		<div class="wrap-item">141</div>
+		<div class="wrap-item">151</div>
+		<div class="wrap-item">151</div>
+		<div class="wrap-item">151</div>
+		<div class="wrap-item">161</div>
+		<div class="wrap-item">161</div>
+	</div>
+
+	<div class="test-order">
+		<div class="order order-first">one</div>
+		<div class="order order-second">two</div>
+		<div class="order order-th">three</div>
+		<div class="order">four</div>
+	</div>
+
+	<div class="test-margin">
+		<div class="margin">one</div>
+		<div class="margin">one</div>
+		<div class="margin">one</div>
+		<div class="margin">one</div>
+		<div class="margin">one</div>
+	</div>
+
+	<div class="margin-auto">
+		<div class="auto">dddddd</div>
+	</div>
+
+	<div class="align-self">
+		<div class="self-item self-first">flex-start</div>
+		<div class="self-item self-second">center</div>
+		<div class="self-item self-third">baseline</div>
+		<div class="self-item self-forth">stretch</div>
+		<div class="self-item self-fifth">flex-end</div>
+	</div>
+
+	<div class="test-flex">
+		<div class="flex-item flex-one">test flex item one</div>
+		<div class="flex-item flex-two">test flex item two</div>
+		<div class="flex-item flex-three">test flex item three</div>
+		<div class="flex-item flex-four">test flex item four</div>
+		<div class="flex-item flex-five">test flex item five</div>
+	</div>
+</body>
+</html>
