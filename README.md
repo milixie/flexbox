@@ -217,3 +217,12 @@ div:nth-of-type(2) {
     flex-shrink: 3;
 }
 ```
+
+## html dom style about flex
+`flex`: `object.style.flex = 1`
+`flex-direction`: `object.style.flexDirection = "column-reverse"`
+`flex-basis`: `object.style.flexBasis = "100px"`
+`flex-flow`: `object.style.flexFlow = "row wrap"`
+`flex-grow`: `object.style.flexGrow = 3`
+`flex-shrink`: `object.style.flexShrink = 3`
+`flex-wrap`: `object.style.flexWrap = "row-reverse"`
